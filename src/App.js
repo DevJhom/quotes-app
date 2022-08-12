@@ -1,8 +1,14 @@
+import React from "react";
+
+import Navigation from "./components/UI/Navigation";
+import Landing from "./pages/Landing";
+
 function App() {
   return (
-    <div>
-      <h2>Let's get started!</h2>
-    </div>
+    <React.Fragment>
+      <Navigation />
+      <Landing/>
+    </React.Fragment>
   );
 }
 
