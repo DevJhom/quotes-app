@@ -1,0 +1,21 @@
+.container {
+    width: 50%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    line-height: 2.2rem;
+    padding: 1rem 2rem 5rem 2rem;
+    border-radius: 5px;
+    border: 1px solid red;
+}
+
+.container p {
+    font-size: 1.5rem;
+}
+
+.container small {
+    align-self: flex-end;
+    font-size: 1rem;
+}
