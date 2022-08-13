@@ -1,21 +1,25 @@
-.container {
-    width: 50%;
-    min-height: 60vh;
+.wrapper {
+    width: 60%;
+    height: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-align: center;
-    line-height: 2.2rem;
-    padding: 1rem 2rem 5rem 2rem;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    list-style-type: none;
     border-radius: 5px;
-    border: 1px solid red;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
-.container p {
-    font-size: 1.5rem;
+.quote {
+    width: 100%;
 }
 
-.container small {
-    align-self: flex-end;
-    font-size: 1rem;
+.quote-text {
+    font-size: 1.15rem;
+    line-height: 1.5rem;
+}
+
+.quote-info {
+    font-size: 0.9rem;
+    color: antiquewhite;
 }
