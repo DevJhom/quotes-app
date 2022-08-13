@@ -1,14 +1,22 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
 
-import Navigation from "./components/UI/Navigation";
+import Layout from "./components/UI/Layout";
 import Landing from "./pages/Landing";
+import FavoriteQuotes from "./pages/FavoriteQuotes";
 
 function App() {
   return (
-    <React.Fragment>
-      <Navigation />
-      <Landing/>
-    </React.Fragment>
+    <Layout>
+      <Switch>
+        <Route path="/" exact>
+          <Landing/>
+        </Route>
+        <Route path="/fav-quotes">
+          <FavoriteQuotes/>
+        </Route>
+      </Switch>
+    </Layout>
   );
 }
 
