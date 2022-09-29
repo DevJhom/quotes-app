@@ -1,4 +1,4 @@
-button {
+.btn {
     color: #fff;
     font-family: inherit;
     font-size: 1rem;
@@ -6,4 +6,8 @@ button {
     border: 0;
     border-radius: 2rem;
     background-color: #FA2017;
+}
+
+.icon {
+    margin-left: 1rem;
 }
