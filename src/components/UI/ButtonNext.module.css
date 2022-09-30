@@ -8,6 +8,10 @@
     background-color: #FA2017;
 }
 
+.btn:hover {
+    cursor: pointer;
+}
+
 .icon {
     margin-left: 1rem;
 }

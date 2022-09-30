@@ -11,6 +11,11 @@
     font-size: 1.5rem;
 }
 
+.logo:hover {
+    cursor: pointer;
+    color: #FA2017;
+}
+
 .nav ul {
     list-style-type: none;
     display: flex;
@@ -26,7 +31,7 @@
 }
 
 .nav a:hover,
-.nav a.active{
+.nav a.active {
     cursor: pointer;
     color: #FA2017;
     font-size: 1.01rem;
