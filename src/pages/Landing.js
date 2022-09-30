@@ -1,54 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import DisplayedQuote from "../components/quotes/DisplayedQuote";
+import DisplayedQuote from "../components/Quotes/DisplayedQuote";
 import ButtonNext from "../components/UI/ButtonNext";
 
-const dummy = [
-  {
-    text: "I must not fear. Fear is the mind-killer. Fear is the little-death that brings total obliteration. I will face my fear. I will permit it to pass over me and through me. And when it has gone past I will turn the inner eye to see its path. Where the fear has gone there will be nothing. Only I will remain.",
-    author: "Frank Herbert",
-    book: "Dune",
-    year: "1965",
-  },
-  {
-    text: "To live is the rarest thing in the world. Most people exist, that is all.",
-    author: "Oscar Wilde",
-    book: "",
-    year: "",
-  },
-  {
-    text: "Whatever it is you're seeking won't come in the form you're expecting.",
-    author: "Haruki Murakami",
-    book: "",
-    year: "",
-  },
-];
-
-let counter = 0;
-
 const Landing = () => {
-  const [displayedQuoteData, setDisplayedQuoteData] = useState(dummy[counter]);
+  const [displayedQuoteData, setDisplayedQuoteData] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const onClickHandler = () => {
-    if(counter < dummy.length - 1){
-      ++counter;
-    }else{
-      counter = 0;
-      //fetch more data
+  useEffect(() => {
+    fetchQuote();
+  }, []);
+
+  const fetchQuote = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetch("https://api.quotable.io/random");
+      const data = await res.json();
+      if (res.ok) {
+        setDisplayedQuoteData(data);
+      } else {
+        throw new Error("Oops! Something went wrong.");
+      }
+    } catch (error) {
+      setError(error.message);
     }
-
-    setDisplayedQuoteData(dummy[counter]);
+    setIsLoading(false);
   };
 
   return (
     <div className="centered">
-      <DisplayedQuote
-        text={displayedQuoteData.text}
-        author={displayedQuoteData.author}
-        book={displayedQuoteData.book}
-        year={displayedQuoteData.year}
-      />
-      <ButtonNext text="Next Quote" type="button" onClick={onClickHandler} />
+      {!isLoading && !error && (
+        <DisplayedQuote
+          text={displayedQuoteData.content}
+          author={"- " + displayedQuoteData.author}
+        />
+      )}
+      {isLoading && !error && <DisplayedQuote text={"loading..."} />}
+      {!isLoading && error && <DisplayedQuote text={error} />}
+      <ButtonNext text="Next Quote" type="button" onClick={fetchQuote} />
     </div>
   );
 };
