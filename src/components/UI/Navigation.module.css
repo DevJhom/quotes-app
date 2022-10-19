@@ -27,7 +27,6 @@
 
 .nav a {
     text-decoration: none;
-    color: #fff;
 }
 
 .nav a:hover,
@@ -35,4 +34,25 @@
     cursor: pointer;
     color: #FA2017;
     font-size: 1.01rem;
+}
+
+.toggle-btn {
+    font-family: inherit;
+    margin-top: -10%;
+    border-radius: 15px;
+    padding: 5px;
+    outline: none;
+    border: none;
+}
+
+.toggle-btn {
+    cursor: pointer;
+}
+
+.dark {
+  color: #fff;
+}
+
+.light {
+    color: #080808;
 }

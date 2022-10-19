@@ -2,17 +2,12 @@
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html {
   font-family: 'Roboto', sans-serif;
-}
-
-body {
-  margin: 0;
-  color: #fff;
-  /* background-color: #0B0B0B; */
-  background-image: radial-gradient(circle at center, #080808,#000);
 }
 
 .centered {
@@ -20,4 +15,14 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.dark {
+  color: #fff;
+  background-image: radial-gradient(circle at center, #080808,#000);
+}
+
+.light {
+  color: #080808;
+  background-color: aliceblue;
 }
